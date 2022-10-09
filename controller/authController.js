@@ -22,7 +22,7 @@ module.exports = {
                     })
                 }
                 // insert user
-                db.query(`INSERT INTO users (uuid, username, password, registered) VALUES ('${uuid.v4()}', ${db.escape(req.body.username)}, ${db.escape(hash)}, now())`, (err, result) => {
+                db.query(`INSERT INTO users (uuid, username, password, created_at) VALUES ('${uuid.v4()}', ${db.escape(req.body.username)}, ${db.escape(hash)}, now())`, (err, result) => {
                     if (err) {
                         return res.status(400).send({
                             status: 'Failed',
